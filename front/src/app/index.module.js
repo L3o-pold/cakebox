@@ -6,7 +6,8 @@
         'ngRoute',
         'ui.bootstrap',
         'ngClipboard',
-        'pascalprecht.translate'
+        'pascalprecht.translate',
+        'ngStorage'
     ]);
 
 })();

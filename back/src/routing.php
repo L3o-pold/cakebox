@@ -1,5 +1,8 @@
 <?php
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 /**
  * App routes
  */
@@ -26,3 +29,7 @@ $app->get('/betaseries/config',          'Cakebox\Controller\BetaseriesControlle
 $app->get('/betaseries/info/{name}',     'Cakebox\Controller\BetaseriesController::getInfos');
 $app->post('/betaseries/watched/{id}',   'Cakebox\Controller\BetaseriesController::setWatched');
 $app->delete('/betaseries/watched/{id}', 'Cakebox\Controller\BetaseriesController::unsetWatched');
+
+$app->after(function (Request $request, Response $response) {
+    $response->headers->set('Access-Control-Allow-Origin', $_SERVER['HTTP_ORIGIN']);
+});

@@ -5,7 +5,9 @@
     "type": "git",
     "url": "git@github.com:Cakebox/Cakebox-light.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ngstorage": "^0.3.10"
+  },
   "scripts": {
     "test": "gulp test"
   },

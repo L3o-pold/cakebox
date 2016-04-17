@@ -6,7 +6,7 @@
         .config(config);
 
     /** @ngInject */
-    function config($routeProvider, $translateProvider) {
+    function config($routeProvider, $translateProvider, $httpProvider) {
         var customResolves = {
             checkAppSettings: checkAppSettings,
         };
@@ -50,7 +50,11 @@
 
         cakeboxRouteProvider
             .when('/', {
-                redirectTo: '/browse'
+                redirectTo: '/login'
+            })
+            .when('/login', {
+                templateUrl: 'app/login/login.html',
+                controller:  'LoginCtrl'
             })
             .when('/browse', {
                 templateUrl: 'app/browse/browse.html',
@@ -68,7 +72,7 @@
                 templateUrl: 'app/about/about.html'
             })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/browse'
             });
 
         $translateProvider.useStaticFilesLoader({
@@ -76,6 +80,24 @@
             suffix: '.json'
         });
         $translateProvider.preferredLanguage('fr');
+
+        $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function ($q, $location, $localStorage) {
+            return {
+                'request': function (config) {
+                    config.headers = config.headers || {};
+                    if ($localStorage.token) {
+                        config.headers.Authorization = 'Bearer ' + $localStorage.token;
+                    }
+                    return config;
+                },
+                'responseError': function (response) {
+                    if (response.status === 401 || response.status === 403) {
+                        $location.path('/signin');
+                    }
+                    return $q.reject(response);
+                }
+            };
+        }]);
     }
 
 })();

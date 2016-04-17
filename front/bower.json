@@ -2,6 +2,7 @@
   "name": "cakebox",
   "version": "2.0.0",
   "dependencies": {
+    "alertify": "~0.3.10",
     "angular": "~1.4.2",
     "angular-bootstrap": "~0.13.4",
     "angular-resource": "~1.4.2",
@@ -11,7 +12,8 @@
     "bootstrap": "~3.3.5",
     "font-awesome": "~4.4.0",
     "ng-clip": "~0.2.6",
-    "zeroclipboard": "~2.2.0"
+    "zeroclipboard": "~2.2.0",
+    "ngstorage": "~0.3.10"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.2"
