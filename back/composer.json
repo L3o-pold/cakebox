@@ -8,7 +8,8 @@
     "silex/silex": "~1.3",
     "symfony/finder": "~3.0",
     "monolog/monolog": "1.x",
-    "jdesrosiers/silex-cors-provider": "~0.1"
+    "jdesrosiers/silex-cors-provider": "~0.1",
+    "cnam/security-jwt-service-provider": "~1.1"
   },
   "autoload": {
     "psr-0": {"Cakebox": "src/"}

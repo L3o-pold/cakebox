@@ -33,3 +33,5 @@ $app["rights.canDelete"] = false;
 $app["bs.login"] = "";
 $app["bs.passwd"] = "";
 $app["bs.apikey"] = "";
+
+$app['jwt.secretKey'] = '';
