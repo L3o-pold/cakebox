@@ -8,7 +8,7 @@
 
         function successAuth(res) {
             $localStorage.token = res.token;
-            window.location = "/browse";
+            window.location = "/#/browse";
         }
 
         $scope.signin = function () {
@@ -19,7 +19,7 @@
 
             Auth.signin(formData, successAuth, function () {
                 $rootScope.error = 'Invalid credentials.';
-            })
+            });
         };
 
         $scope.logout = function () {
