@@ -129,7 +129,7 @@ function rss(Application $app, Request $request) {
 
     $dirpath = Utils\check_path($app['cakebox.root'], $request->get('path', ''));
 
-    if (!isset($dirpath)) {
+    if (!isset($dirpath) || !isset($app['cakebox.rss']) || $app['cakebox.rss'] !== true) {
         $app->abort(403, "Forbiden");
     }
 

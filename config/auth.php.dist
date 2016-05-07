@@ -25,6 +25,8 @@ $app['users'] = [
         'cakebox.access'            => "/access/", // Alias used in web server for direct access
         'cakebox.language'          => "fr", //Language of Cakebox. Could be : fr, en, it
         'cakebox.host'              => "cakebox.local", //domain where cakebox is hosted
+        'cakebox.rss'               => false, // warning, rss could display sensitive data
+
         /*
           Directory settings
         */
